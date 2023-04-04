@@ -12,12 +12,12 @@ spec:
         repoURL: https://github.com/Wompipomp/argocd-test-repo.git
         revision: HEAD
         directories:
-          - path: "team1/bootstrap/*.yaml"
+          - path: "**/bootstrap/app.yaml"
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: '{{path[1]}}'
-      name: 'dev-{{path[1]}}'
+        app.kubernetes.io/name: '{{path[0]}}'
+      name: '{{path[0]}}'
     spec:
       project: "default"
       source:
