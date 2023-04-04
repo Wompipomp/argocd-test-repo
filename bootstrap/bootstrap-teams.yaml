@@ -12,7 +12,7 @@ spec:
         repoURL: https://github.com/Wompipomp/argocd-test-repo.git
         revision: HEAD
         directories:
-          - path: "**/bootstrap/app.yaml"
+          - path: "**/bootstrap"
   template:
     metadata:
       labels:
