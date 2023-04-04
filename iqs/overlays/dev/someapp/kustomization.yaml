@@ -1,7 +1,7 @@
 resources:
   - ../../../base/app1
 
-namespace: dev
+namespace: iqs
 
 commonLabels:
   app: someapp
