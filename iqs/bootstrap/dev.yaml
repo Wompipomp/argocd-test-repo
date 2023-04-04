@@ -64,4 +64,3 @@ spec:
           allowEmpty: true
           prune: true
           selfHeal: false
-      createNamespace: true
