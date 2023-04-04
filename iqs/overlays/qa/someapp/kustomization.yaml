@@ -1,0 +1,8 @@
+resources:
+  - ../../../base/app1
+
+namespace: qa-iqs
+
+commonLabels:
+  app: someapp
+  team: iqs-support
