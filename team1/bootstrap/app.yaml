@@ -35,7 +35,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/Wompipomp/argocd-test-repo
+        repoURL: https://github.com/Wompipomp/argocd-test-repo.git
         revision: HEAD
         directories:
           - path: "team1/overlays/dev/**"
