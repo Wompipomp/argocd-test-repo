@@ -1,0 +1,66 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  creationTimestamp: null
+  name: team1
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: applications for dev cluster and dev namespace
+  destinations:
+    - namespace: '*'
+      server: 'https://kubernetes.default.svc'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  sourceRepos:
+    - '*'
+status: {}
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  creationTimestamp: null
+  name: dev
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/Wompipomp/argocd-test-repo
+        revision: HEAD
+        directories:
+          - path: "team1/overlays/dev/**"
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: '{{path[0]}}'
+      name: 'dev-{{path[0]}}'
+    spec:
+      project: "team1"
+      source:
+        repoURL: https://github.com/Wompipomp/argocd-test-repo
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '*'
+      ignoreDifferences:
+        - group: argoproj.io
+          jsonPointers:
+            - /status
+          kind: Application
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: false
