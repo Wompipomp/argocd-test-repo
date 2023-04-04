@@ -37,7 +37,7 @@ spec:
     - git:
         repoURL: https://github.com/Wompipomp/argocd-test-repo1.git
         revision: HEAD
-        directory:
+        directories:
           - path: "team1/overlays/dev/*"
   template:
     metadata:
