@@ -43,7 +43,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/managed-by: argocd-autopilot
-        app.kubernetes.io/name: '{{path.basenameNormalized}}'
+        app.kubernetes.io/name: 'dev-mach-{{path.basenameNormalized}}'
       name: 'dev-mach-{{path.basenameNormalized}}'
     spec:
       project: "default"
