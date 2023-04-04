@@ -48,7 +48,7 @@ spec:
     spec:
       project: "team1"
       source:
-        repoURL: https://github.com/Wompipomp/argocd-test-repo
+        repoURL: https://github.com/Wompipomp/argocd-test-repo.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
