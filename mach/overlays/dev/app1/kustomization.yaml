@@ -1,0 +1,8 @@
+resources:
+  - ../../../base/app1
+
+namespace: dev
+
+commonLabels:
+  app: myapp
+  team: team1
