@@ -50,8 +50,8 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: '{{name}}-iqs-{{path.basenameNormalized}}'
-      name: '{{name}}-iqs-{{path.basenameNormalized}}'
+        app.kubernetes.io/name: '{{cluster}}-iqs-{{path.basenameNormalized}}'
+      name: '{{cluster}}-iqs-{{path.basenameNormalized}}'
     spec:
       project: "default"
       source:
@@ -59,8 +59,8 @@ spec:
         targetRevision: HEAD
         path: '{{path}}'
       destination:
-        server: https://kubernetes.default.svc
-        namespace: '{{name}}'
+        server: '{{url}}'
+        namespace: '*'
       ignoreDifferences:
         - group: argoproj.io
           jsonPointers:
