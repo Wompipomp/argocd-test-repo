@@ -1,6 +1,5 @@
 resources:
   - ../../../base/app1
-  - ns.yaml
 
 namespace: qa-iqs
 
