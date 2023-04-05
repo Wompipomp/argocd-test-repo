@@ -1,8 +1,0 @@
-resources:
-  - ../../../base/app1
-
-namespace: iqs
-
-commonLabels:
-  app: myapp
-  team: team1

@@ -1,8 +1,8 @@
 resources:
   - ../../../base/someapp
 
-namespace: qa-iqs
+namespace: team1
 
 commonLabels:
   app: someapp
-  team: iqs-support
+  team: team1
