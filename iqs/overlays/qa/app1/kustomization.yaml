@@ -1,5 +1,5 @@
 resources:
-  - ../../../base/someapp
+  - ../../../base/app1
 
 namespace: qa-iqs
 
